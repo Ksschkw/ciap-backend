@@ -37,6 +37,6 @@ USER appuser
 # Expose the port the app runs on
 EXPOSE ${PORT}
 
-# Command to run the application
+# Command to run the application (Runs migrations first, then starts the server)
 # We use $PORT so platforms like Render or Heroku can inject their dynamically assigned port
-CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT}
+CMD alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port ${PORT}

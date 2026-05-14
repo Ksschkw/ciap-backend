@@ -1,0 +1,24 @@
+journey
+    title Creator Onboarding & First Dashboard Visit
+    section Sign Up
+      Land on Homepage: 5: Creator
+      Click "Sign Up with Google": 5: Creator
+      Select Category (Comedian/Musician/etc): 5: Creator
+      See "Connect Platforms" Empty State: 3: Creator
+    section Platform Connection (Critical Path)
+      Click "Connect YouTube": 5: Creator
+      Google OAuth Consent Screen: 5: System
+      Failure: Permission Denied: 2: Creator, System
+      Note left of Creator: UI shows error: "Insufficient Permissions. Please grant access to YouTube Analytics." Retry button.
+      Success: Token Stored: 5: System
+      Redirect to Dashboard with Loading Spinner: 4: Creator
+      Background Job Fetches Data (30-60s): 3: System
+    section First Value Realization
+      See "We're pulling your latest stats...": 3: Creator
+      Dashboard Populates with Real Views: 5: Creator
+      Hover over "Engagement Rate" for Tooltip: 5: Creator
+      Click "Top Performing Content" Row: 5: Creator
+      Modal shows detailed metrics (Watch Time, Shares): 5: Creator
+      Toggle Language to Pidgin: 5: Creator
+      Log Out and Log Back In: 5: Creator
+      Note right of Creator: Dashboard loads quickly from database.

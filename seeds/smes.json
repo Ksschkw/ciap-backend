@@ -1,0 +1,78 @@
+[
+  {
+    "full_name": "Chidi Okeke",
+    "email": "chidi.okeke@dangote.ciap.dev",
+    "password": "Dangote@Ciap2026",
+    "role": "SME",
+    "avatar_url": "https://i.pravatar.cc/150?u=chididangote",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "SME_GROWTH",
+    "profile": {
+      "company_name": "Dangote Consumer Products",
+      "industry": "FMCG",
+      "website_url": "https://dangote.com",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Dangote_Group_Logo.svg/320px-Dangote_Group_Logo.svg.png",
+      "description": "West Africa's largest food and consumer goods manufacturer. We are expanding our digital marketing presence targeting Gen-Z and millennial consumers.",
+      "monthly_budget_ngn": 5000000.00
+    }
+  },
+  {
+    "full_name": "Aisha Bello",
+    "email": "aisha.bello@piggyvest.ciap.dev",
+    "password": "PiggyVest@Ciap2026",
+    "role": "SME",
+    "avatar_url": "https://i.pravatar.cc/150?u=aishabellopv",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "SME_STARTER",
+    "profile": {
+      "company_name": "PiggyVest",
+      "industry": "Fintech",
+      "website_url": "https://piggyvest.com",
+      "logo_url": "https://i.pravatar.cc/150?u=piggyvest_logo",
+      "description": "Nigeria's leading savings and investment platform. Looking for financially-minded creators to promote our savings challenge campaigns.",
+      "monthly_budget_ngn": 1500000.00
+    }
+  },
+  {
+    "full_name": "Innocent Chukwuma",
+    "email": "innocent.chukwuma@innoson.ciap.dev",
+    "password": "Innoson@Ciap2026",
+    "role": "SME",
+    "avatar_url": "https://i.pravatar.cc/150?u=innocentchukwuma",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "ENTERPRISE",
+    "profile": {
+      "company_name": "Innoson Vehicle Manufacturing",
+      "industry": "Automotive",
+      "website_url": "https://www.innosonvehicles.com",
+      "logo_url": "https://i.pravatar.cc/150?u=innoson_logo",
+      "description": "Africa's first indigenous vehicle manufacturing company. Seeking creators to push the 'Pride of African Roads' campaign.",
+      "monthly_budget_ngn": 15000000.00
+    }
+  },
+  {
+    "full_name": "Allen Onyema",
+    "email": "allen.onyema@airpeace.ciap.dev",
+    "password": "AirPeace@Ciap2026",
+    "role": "SME",
+    "avatar_url": "https://i.pravatar.cc/150?u=allenonyema",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "SME_GROWTH",
+    "profile": {
+      "company_name": "Air Peace",
+      "industry": "Aviation",
+      "website_url": "https://www.flyairpeace.com",
+      "logo_url": "https://i.pravatar.cc/150?u=airpeace_logo",
+      "description": "Nigeria's largest airline. Partnering with lifestyle and travel creators to showcase our new international routes.",
+      "monthly_budget_ngn": 8000000.00
+    }
+  }
+]

@@ -1,0 +1,429 @@
+[
+  {
+    "full_name": "Anita Asuoha",
+    "display_name": "Taaooma",
+    "email": "taaooma@creator.ciap.dev",
+    "password": "Taaooma@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=taaooma",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "CREATOR_PRO",
+    "profile": {
+      "category": "Comedy",
+      "secondary_categories": ["Lifestyle", "Entertainment"],
+      "bio": "Nigerian comedy skit maker. I tell stories that make you laugh and think. Based in Lagos.",
+      "location_country": "NG",
+      "location_city": "Lagos",
+      "social_handles": {
+        "youtube": "@Taaooma",
+        "instagram": "@taaooma"
+      },
+      "influence_score": 82.4,
+      "total_followers": 4200000,
+      "avg_engagement_rate": 6.8,
+      "is_public": true,
+      "is_verified": true
+    },
+    "platform_connections": [
+      {
+        "platform_name": "YOUTUBE",
+        "platform_user_id": "UCxxx_taaooma_yt",
+        "platform_username": "Taaooma",
+        "scopes_granted": ["https://www.googleapis.com/auth/youtube.readonly"],
+        "is_active": true
+      },
+      {
+        "platform_name": "INSTAGRAM",
+        "platform_user_id": "ig_taaooma_001",
+        "platform_username": "taaooma",
+        "scopes_granted": ["instagram_basic", "instagram_content_publish"],
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "full_name": "Fisayo Fosudo",
+    "display_name": "Fisayo Fosudo",
+    "email": "fisayo@creator.ciap.dev",
+    "password": "Fisayo@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=fisayofosudo",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "CREATOR_PRO",
+    "profile": {
+      "category": "Tech",
+      "secondary_categories": ["Education", "Lifestyle"],
+      "bio": "Tech reviewer and digital creator. Helping Africans navigate the world of tech with honest reviews.",
+      "location_country": "NG",
+      "location_city": "Lagos",
+      "social_handles": {
+        "youtube": "@FisayoFosudo",
+        "instagram": "@fisayofosudo",
+        "twitter": "@fisayofosudo"
+      },
+      "influence_score": 76.1,
+      "total_followers": 1800000,
+      "avg_engagement_rate": 5.4,
+      "is_public": true,
+      "is_verified": true
+    },
+    "platform_connections": [
+      {
+        "platform_name": "YOUTUBE",
+        "platform_user_id": "UCxxx_fisayo_yt",
+        "platform_username": "FisayoFosudo",
+        "scopes_granted": ["https://www.googleapis.com/auth/youtube.readonly"],
+        "is_active": true
+      },
+      {
+        "platform_name": "TIKTOK",
+        "platform_user_id": "tiktok_fisayo_001",
+        "platform_username": "fisayofosudo",
+        "scopes_granted": ["user.info.basic", "video.list"],
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "full_name": "Bukunmi Adeaga-Ilori",
+    "display_name": "KieKie",
+    "email": "kiekie@creator.ciap.dev",
+    "password": "KieKie@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=kiekie",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "CREATOR_PRO",
+    "profile": {
+      "category": "Comedy",
+      "secondary_categories": ["Fashion", "Lifestyle"],
+      "bio": "Content creator, comedian, and fashion enthusiast. I make you laugh and slay doing it.",
+      "location_country": "NG",
+      "location_city": "Lagos",
+      "social_handles": {
+        "instagram": "@kie.kie_",
+        "youtube": "@KieKie"
+      },
+      "influence_score": 78.9,
+      "total_followers": 3100000,
+      "avg_engagement_rate": 7.2,
+      "is_public": true,
+      "is_verified": true
+    },
+    "platform_connections": [
+      {
+        "platform_name": "INSTAGRAM",
+        "platform_user_id": "ig_kiekie_001",
+        "platform_username": "kie.kie_",
+        "scopes_granted": ["instagram_basic"],
+        "is_active": true
+      },
+      {
+        "platform_name": "YOUTUBE",
+        "platform_user_id": "UCxxx_kiekie_yt",
+        "platform_username": "KieKie",
+        "scopes_granted": ["https://www.googleapis.com/auth/youtube.readonly"],
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "full_name": "Chibuike Adindu",
+    "display_name": "Aproko Doctor",
+    "email": "aprokodoctor@creator.ciap.dev",
+    "password": "Aproko@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=aprokodoctor",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "CREATOR_PRO",
+    "profile": {
+      "category": "Health",
+      "secondary_categories": ["Education"],
+      "bio": "Medical doctor making health education fun and accessible for Nigerians. No jargon.",
+      "location_country": "NG",
+      "location_city": "Lagos",
+      "social_handles": {
+        "youtube": "@AprokoDoctor",
+        "twitter": "@aproko_doctor",
+        "instagram": "@aproko.doctor"
+      },
+      "influence_score": 71.5,
+      "total_followers": 920000,
+      "avg_engagement_rate": 8.1,
+      "is_public": true,
+      "is_verified": true
+    },
+    "platform_connections": [
+      {
+        "platform_name": "YOUTUBE",
+        "platform_user_id": "UCxxx_aproko_yt",
+        "platform_username": "AprokoDoctor",
+        "scopes_granted": ["https://www.googleapis.com/auth/youtube.readonly"],
+        "is_active": true
+      },
+      {
+        "platform_name": "TWITTER",
+        "platform_user_id": "twitter_aproko_001",
+        "platform_username": "aproko_doctor",
+        "scopes_granted": ["tweet.read", "users.read"],
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "full_name": "Toke Makinwa",
+    "display_name": "Toke Makinwa",
+    "email": "toke@creator.ciap.dev",
+    "password": "Toke@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=tokemakinwa",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "CREATOR_PRO",
+    "profile": {
+      "category": "Lifestyle",
+      "secondary_categories": ["Fashion", "Beauty"],
+      "bio": "Media personality, author, and lifestyle influencer. Living loud and unapologetically.",
+      "location_country": "NG",
+      "location_city": "Lagos",
+      "social_handles": {
+        "instagram": "@tokemakinwa",
+        "youtube": "@TokeMakinwa"
+      },
+      "influence_score": 80.3,
+      "total_followers": 5600000,
+      "avg_engagement_rate": 4.9,
+      "is_public": true,
+      "is_verified": true
+    },
+    "platform_connections": [
+      {
+        "platform_name": "INSTAGRAM",
+        "platform_user_id": "ig_toke_001",
+        "platform_username": "tokemakinwa",
+        "scopes_granted": ["instagram_basic"],
+        "is_active": true
+      },
+      {
+        "platform_name": "YOUTUBE",
+        "platform_user_id": "UCxxx_toke_yt",
+        "platform_username": "TokeMakinwa",
+        "scopes_granted": ["https://www.googleapis.com/auth/youtube.readonly"],
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "full_name": "Daniel Regha",
+    "display_name": "Daniel Regha",
+    "email": "danielregha@creator.ciap.dev",
+    "password": "Daniel@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=danielregha",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "FREE",
+    "profile": {
+      "category": "Business",
+      "secondary_categories": ["Education", "Politics"],
+      "bio": "Social commentator, writer, and digital creator. Unfiltered opinions on business, life, and everything in between.",
+      "location_country": "NG",
+      "location_city": "Abuja",
+      "social_handles": {
+        "twitter": "@danielregha",
+        "instagram": "@danielregha"
+      },
+      "influence_score": 64.2,
+      "total_followers": 380000,
+      "avg_engagement_rate": 9.4,
+      "is_public": true,
+      "is_verified": false
+    },
+    "platform_connections": [
+      {
+        "platform_name": "TWITTER",
+        "platform_user_id": "twitter_danielregha_001",
+        "platform_username": "danielregha",
+        "scopes_granted": ["tweet.read", "users.read"],
+        "is_active": true
+      },
+      {
+        "platform_name": "INSTAGRAM",
+        "platform_user_id": "ig_danielregha_001",
+        "platform_username": "danielregha",
+        "scopes_granted": ["instagram_basic"],
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "full_name": "Chukwuebuka Emmanuel",
+    "display_name": "BrainJotter",
+    "email": "brainjotter@creator.ciap.dev",
+    "password": "BrainJotter@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=brainjotter",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "CREATOR_PRO",
+    "profile": {
+      "category": "Comedy",
+      "secondary_categories": ["Entertainment"],
+      "bio": "Comedy skit maker and actor. Famous for the 'Abeg get out' signature walk.",
+      "location_country": "NG",
+      "location_city": "Lagos",
+      "social_handles": {
+        "instagram": "@brainjotter",
+        "youtube": "@BrainJotterComedian"
+      },
+      "influence_score": 85.1,
+      "total_followers": 2900000,
+      "avg_engagement_rate": 8.5,
+      "is_public": true,
+      "is_verified": true
+    },
+    "platform_connections": [
+      {
+        "platform_name": "INSTAGRAM",
+        "platform_user_id": "ig_brainjotter_001",
+        "platform_username": "brainjotter",
+        "scopes_granted": ["instagram_basic"],
+        "is_active": true
+      },
+      {
+        "platform_name": "YOUTUBE",
+        "platform_user_id": "UCxxx_brainjotter_yt",
+        "platform_username": "BrainJotterComedian",
+        "scopes_granted": ["https://www.googleapis.com/auth/youtube.readonly"],
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "full_name": "Chinedu Ani Emmanuel",
+    "display_name": "Nedu Wazobia",
+    "email": "nedu@creator.ciap.dev",
+    "password": "Nedu@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=nedu",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "CREATOR_PRO",
+    "profile": {
+      "category": "Entertainment",
+      "secondary_categories": ["Comedy", "Lifestyle"],
+      "bio": "On-Air Personality, actor, and content creator. Host of The Honest Bunch podcast.",
+      "location_country": "NG",
+      "location_city": "Lagos",
+      "social_handles": {
+        "instagram": "@nedu_wazobiafm",
+        "youtube": "@NeduWazobia"
+      },
+      "influence_score": 77.4,
+      "total_followers": 2100000,
+      "avg_engagement_rate": 6.1,
+      "is_public": true,
+      "is_verified": true
+    },
+    "platform_connections": [
+      {
+        "platform_name": "INSTAGRAM",
+        "platform_user_id": "ig_nedu_001",
+        "platform_username": "nedu_wazobiafm",
+        "scopes_granted": ["instagram_basic"],
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "full_name": "Mercy Eke",
+    "display_name": "Mercy Lambo",
+    "email": "mercy@creator.ciap.dev",
+    "password": "Mercy@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=mercyeke",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "CREATOR_PRO",
+    "profile": {
+      "category": "Fashion",
+      "secondary_categories": ["Lifestyle", "Beauty"],
+      "bio": "Media personality, actress, video vixen and entrepreneur. BBNaija Pepper Dem winner.",
+      "location_country": "NG",
+      "location_city": "Lagos",
+      "social_handles": {
+        "instagram": "@official_mercyeke"
+      },
+      "influence_score": 79.8,
+      "total_followers": 3900000,
+      "avg_engagement_rate": 5.2,
+      "is_public": true,
+      "is_verified": true
+    },
+    "platform_connections": [
+      {
+        "platform_name": "INSTAGRAM",
+        "platform_user_id": "ig_mercyeke_001",
+        "platform_username": "official_mercyeke",
+        "scopes_granted": ["instagram_basic"],
+        "is_active": true
+      }
+    ]
+  },
+  {
+    "full_name": "Michael Collins Ajereh",
+    "display_name": "Don Jazzy",
+    "email": "donjazzy@creator.ciap.dev",
+    "password": "DonJazzy@Ciap2026",
+    "role": "CREATOR",
+    "avatar_url": "https://i.pravatar.cc/150?u=donjazzy",
+    "language_preference": "en",
+    "status": "ACTIVE",
+    "is_email_verified": true,
+    "subscription_plan": "ENTERPRISE",
+    "profile": {
+      "category": "Music",
+      "secondary_categories": ["Entertainment", "Business"],
+      "bio": "Record producer, brand ambassador, audio engineer, record executive, and philanthropist.",
+      "location_country": "NG",
+      "location_city": "Lagos",
+      "social_handles": {
+        "instagram": "@donjazzy",
+        "twitter": "@DONJAZZY"
+      },
+      "influence_score": 92.5,
+      "total_followers": 15000000,
+      "avg_engagement_rate": 8.0,
+      "is_public": true,
+      "is_verified": true
+    },
+    "platform_connections": [
+      {
+        "platform_name": "INSTAGRAM",
+        "platform_user_id": "ig_donjazzy_001",
+        "platform_username": "donjazzy",
+        "scopes_granted": ["instagram_basic", "instagram_content_publish"],
+        "is_active": true
+      },
+      {
+        "platform_name": "TWITTER",
+        "platform_user_id": "twitter_donjazzy_001",
+        "platform_username": "DONJAZZY",
+        "scopes_granted": ["tweet.read", "users.read"],
+        "is_active": true
+      }
+    ]
+  }
+]

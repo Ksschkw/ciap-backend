@@ -1,0 +1,279 @@
+erDiagram
+    %% ENTITY RELATIONSHIP DIAGRAM (ERD)
+    %% CIAP MVP — PostgreSQL Database Blueprint
+    %% Updated: 2026-04-08
+    %% New tables added: AudienceSnapshot, InfluenceScore, CampaignCreatorBrief,
+    %%                   ConversionEvent, Notification
+
+    %% ─────────────────────────────────────────────────────────────
+    %% USER DOMAIN
+    %% ─────────────────────────────────────────────────────────────
+
+    User {
+        uuid id PK
+        string email UK "Unique login email"
+        string hashed_password "NULL for OAuth-only signups"
+        enum role "CREATOR | SME | AGENCY | ADMIN"
+        string full_name
+        string avatar_url "CDN URL"
+        enum language_preference "en | ha | yo | ig | pcm"
+        enum status "ACTIVE | SUSPENDED | PENDING_VERIFICATION | DEACTIVATED"
+        enum subscription_plan "FREE | CREATOR_PRO | SME_STARTER | ..."
+        boolean is_email_verified
+        timestamp last_login_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CreatorProfile {
+        uuid id PK
+        uuid user_id FK "One-to-One with User"
+        enum category "Music | Comedy | Tech | Fashion | ..."
+        jsonb secondary_categories "Up to 2 extra niches"
+        text bio "Max 500 chars"
+        string location_country "ISO 3166-1 alpha-2"
+        string location_city
+        jsonb social_handles "Display handles per platform"
+        float influence_score "Denormalised ML score 0-100 (updated weekly)"
+        int total_followers "Aggregated across platforms (denormalised)"
+        float avg_engagement_rate "Aggregated % (denormalised)"
+        boolean is_public "Can SMEs discover this creator?"
+        boolean is_verified "Admin-granted platform badge"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    SMEProfile {
+        uuid id PK
+        uuid user_id FK "One-to-One with User"
+        string company_name
+        string industry "e.g. FMCG, Fintech, Fashion"
+        string website_url
+        string logo_url "CDN URL"
+        text description "Max 500 chars"
+        string payment_gateway_customer_id "Paystack/Flutterwave customer ID"
+        float monthly_budget_ngn "Self-declared budget"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    PlatformConnection {
+        uuid id PK
+        uuid user_id FK "Which user connected"
+        enum platform_name "YOUTUBE | INSTAGRAM | TIKTOK | TWITTER | FACEBOOK | SPOTIFY | AUDIOMACK | SNAPCHAT"
+        text access_token "ENCRYPTED AT REST"
+        text refresh_token "ENCRYPTED AT REST"
+        timestamp token_expires_at "NULL = non-expiring"
+        string platform_user_id "Creator ID on the external platform"
+        string platform_username "Display handle"
+        jsonb scopes_granted "OAuth scopes approved"
+        boolean is_active "False when token revoked"
+        timestamp last_synced_at
+        string sync_error_message
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    %% ─────────────────────────────────────────────────────────────
+    %% CONTENT DOMAIN
+    %% ─────────────────────────────────────────────────────────────
+
+    ContentItem {
+        uuid id PK
+        uuid creator_id FK "FK -> creator_profiles.id"
+        uuid platform_connection_id FK "Which token fetched this"
+        string platform "Platform name"
+        string external_id "Native post/video ID — unique per platform"
+        enum media_type "VIDEO | IMAGE | CAROUSEL | AUDIO | STORY | LIVE | TEXT | SHORT"
+        string title "Max 500 chars"
+        text caption
+        jsonb hashtags "Extracted hashtags"
+        string permalink "Public URL to original content"
+        string thumbnail_url
+        int duration_seconds "NULL for images/text"
+        enum status "ACTIVE | DELETED | UNAVAILABLE"
+        string detected_language "ISO 639-1"
+        timestamp posted_at "When creator originally published"
+        timestamp synced_at "When CIAP fetched this"
+    }
+
+    ContentMetricSnapshot {
+        uuid id PK
+        uuid content_id FK "FK -> content_items.id"
+        timestamp captured_at "Snapshot timestamp — APPEND ONLY"
+        bigint views
+        bigint likes
+        bigint comments
+        bigint shares
+        bigint saves "Bookmarks/saves"
+        bigint reposts "Retweets/reposts"
+        int watch_time_seconds "Video only"
+        int average_view_duration_seconds "Video only"
+        float click_through_rate "CTR from impressions"
+        bigint streams "Audio only"
+        bigint playlist_adds "Audio only"
+        bigint impressions
+        bigint reach "Unique accounts reached"
+        float engagement_rate "Calculated on ingest (percent)"
+    }
+
+    AudienceSnapshot {
+        uuid id PK
+        uuid platform_connection_id FK "FK -> platform_connections.id"
+        uuid creator_id FK "FK -> creator_profiles.id (denormalised)"
+        timestamp captured_at "APPEND ONLY — weekly snapshots"
+        int total_followers
+        int new_followers_this_period
+        jsonb age_distribution "key=bracket, value=percent"
+        jsonb gender_distribution "male/female/other percentages"
+        jsonb top_countries "ISO code -> percent"
+        jsonb top_cities "city name -> percent"
+        jsonb top_languages "ISO code -> percent"
+    }
+
+    %% ─────────────────────────────────────────────────────────────
+    %% CAMPAIGN DOMAIN
+    %% ─────────────────────────────────────────────────────────────
+
+    Campaign {
+        uuid id PK
+        uuid sme_id FK "FK -> sme_profiles.id"
+        string name "Max 200 chars"
+        text description
+        enum objective "BRAND_AWARENESS | LEAD_GENERATION | PRODUCT_SALES | ..."
+        decimal total_budget_ngn
+        decimal spent_budget_ngn "Tracked spend"
+        date start_date
+        date end_date
+        jsonb target_platforms "e.g. [YOUTUBE, INSTAGRAM]"
+        jsonb target_categories "Creator niches wanted"
+        jsonb target_locations "ISO country codes"
+        float min_influence_score
+        int min_followers
+        enum status "DRAFT | ACTIVE | PAUSED | COMPLETED | CANCELLED"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CampaignCollaboration {
+        uuid id PK
+        uuid campaign_id FK
+        uuid creator_id FK "FK -> creator_profiles.id"
+        uuid content_id FK "FK -> content_items.id — NULL until creator posts"
+        decimal negotiated_fee_ngn
+        string payment_gateway_reference "Paystack/Flutterwave transaction ref"
+        string tracking_link "UTM-tagged URL"
+        string tracking_code UK "Short code for webhook resolution"
+        int total_clicks "Denormalised for fast reads"
+        int total_conversions "Denormalised for fast reads"
+        float estimated_roi "Calculated by ML service"
+        enum status "INVITED | ACCEPTED | DECLINED | CONTENT_SUBMITTED | APPROVED | REJECTED | PAYMENT_PENDING | COMPLETED | CANCELLED"
+        timestamp invited_at
+        timestamp responded_at
+        timestamp completed_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CampaignCreatorBrief {
+        uuid id PK
+        uuid collaboration_id FK "Unique, One-to-One with CampaignCollaboration"
+        text deliverables "What the creator must produce"
+        jsonb dos "Must-do items"
+        jsonb donts "Must-not-do items"
+        jsonb brand_keywords "Mandatory talking points"
+        jsonb hashtags_required "Mandatory hashtags"
+        jsonb reference_links "Guidelines / inspiration links"
+        date submission_deadline
+        int revision_limit "Default 2"
+        text additional_notes
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    ConversionEvent {
+        uuid id PK
+        uuid collaboration_id FK
+        enum event_type "CLICK | SIGNUP | PURCHASE | APP_INSTALL | FORM_SUBMIT | VIDEO_VIEW | CUSTOM"
+        timestamp occurred_at "When the event happened"
+        timestamp received_at "When our webhook received it"
+        string tracking_code "Used to resolve collaboration_id"
+        decimal revenue_ngn "For PURCHASE events"
+        string session_id "Browser session for deduplication"
+        string ip_country "ISO 3166-1 alpha-2"
+        string device_type "mobile | desktop | tablet"
+        jsonb custom_data "Extra webhook payload KVs"
+    }
+
+    %% ─────────────────────────────────────────────────────────────
+    %% ML / SCORING DOMAIN
+    %% ─────────────────────────────────────────────────────────────
+
+    InfluenceScore {
+        uuid id PK
+        uuid creator_id FK "FK -> creator_profiles.id"
+        float score "Final score 0-100 — APPEND ONLY (weekly)"
+        jsonb breakdown "ScoreBreakdown sub-scores (audience_loyalty, engagement_quality, etc.)"
+        string model_version "e.g. v1.2.0"
+        int data_window_days "Days of data used (default 30)"
+        jsonb platforms_included "Which platforms contributed"
+        timestamp scored_at
+    }
+
+    %% ─────────────────────────────────────────────────────────────
+    %% SYSTEM DOMAIN
+    %% ─────────────────────────────────────────────────────────────
+
+    AuditLog {
+        uuid id PK
+        uuid user_id FK "NULL for system actions"
+        enum action "PLATFORM_CONNECTED | INGESTION_COMPLETED | CAMPAIGN_CREATED | ..."
+        string entity_type "Affected model, e.g. ContentItem"
+        uuid entity_id "ID of affected entity"
+        jsonb metadata "Request context payload"
+        string ip_address
+        string user_agent
+        timestamp created_at "IMMUTABLE — never updated"
+    }
+
+    Notification {
+        uuid id PK
+        uuid user_id FK "Recipient"
+        enum notification_type "CAMPAIGN_INVITE | PAYMENT_RECEIVED | SCORE_UPDATED | ..."
+        string title "Max 120 chars"
+        string body "Max 500 chars"
+        string action_url "Frontend route for deep-link"
+        uuid related_entity_id "Campaign / Collaboration that triggered this"
+        boolean is_read
+        timestamp read_at
+        timestamp created_at
+    }
+
+    %% ─────────────────────────────────────────────────────────────
+    %% RELATIONSHIPS
+    %% ─────────────────────────────────────────────────────────────
+
+    %% User domain
+    User ||--o| CreatorProfile : "has one"
+    User ||--o| SMEProfile : "has one"
+    User ||--o{ PlatformConnection : "owns many"
+    User ||--o{ AuditLog : "generates"
+    User ||--o{ Notification : "receives"
+
+    %% Content domain
+    CreatorProfile ||--o{ ContentItem : "publishes"
+    CreatorProfile ||--o{ AudienceSnapshot : "has audience history"
+    PlatformConnection ||--o{ ContentItem : "sourced from"
+    PlatformConnection ||--o{ AudienceSnapshot : "sourced from"
+    ContentItem ||--o{ ContentMetricSnapshot : "has metric history"
+
+    %% Campaign domain
+    SMEProfile ||--o{ Campaign : "creates"
+    Campaign ||--o{ CampaignCollaboration : "contains"
+    CreatorProfile ||--o{ CampaignCollaboration : "participates in"
+    ContentItem |o--o| CampaignCollaboration : "linked to (nullable)"
+    CampaignCollaboration ||--o| CampaignCreatorBrief : "has one brief"
+    CampaignCollaboration ||--o{ ConversionEvent : "tracks conversions"
+
+    %% ML / Scoring domain
+    CreatorProfile ||--o{ InfluenceScore : "scored over time"

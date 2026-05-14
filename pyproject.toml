@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ciap-backend"
+version = "0.1.0"
+description = "CIAP FastAPI backend"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1.0",
+  "uvicorn[standard]>=0.30,<1.0",
+  "uvloop>=0.20,<1.0; sys_platform != 'win32'",
+  "pydantic[email]>=2.8,<3.0",
+  "pydantic-settings>=2.4,<3.0",
+  "sqlalchemy>=2.0,<3.0",
+  "psycopg2-binary>=2.9,<3.0",
+  "alembic>=1.13,<2.0",
+  "redis>=5.0,<6.0",
+  "celery>=5.4,<6.0",
+  "httpx>=0.27,<1.0",
+  "python-jose[cryptography]>=3.3,<4.0",
+  "passlib[bcrypt]>=1.7,<2.0",
+  "python-multipart>=0.0.9,<1.0",
+  "google-api-python-client>=2.0,<3.0",
+  "google-auth>=2.0,<3.0",
+]
+
+[dependency-groups]
+dev = [
+  "mypy>=1.11,<2.0",
+  "pytest>=8.0,<9.0",
+  "pytest-asyncio>=0.24,<1.0",
+  "pytest-cov>=5.0,<6.0",
+  "ruff>=0.6,<1.0",
+  "types-passlib>=1.7.7.20260211",
+  "types-python-jose>=3.5.0.20260408",
+]
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*", "DATA*"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+no_implicit_optional = true
+check_untyped_defs = true
+pretty = true
+show_error_codes = true
+strict_equality = true
+namespace_packages = true
+explicit_package_bases = true
+files = ["app", "DATA", "tests"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
